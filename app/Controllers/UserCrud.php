@@ -5,19 +5,21 @@ use CodeIgniter\Controller;
  
 class UserCrud extends BaseController
 {
-    // users list
+    /* función para obtener en la vista de usuario 
+    la lista de todos los usuarios registrados
+    ordenados por id descendentemente*/
     public function index(){
         $userModel = new UserModel();
         $data['users'] = $userModel->orderBy('id', 'DESC')->findAll();
         return view('user_view', $data);
     }
  
-    // user form
+    // Función para cargar la vista add_user y agregar un nuevo usuario
     public function create(){
         return view('add_user');
     }
   
-    // insert data into database
+    // Función para guardar el nombre y el id del usuario en la tabla de usuarios
     public function store() {
         $userModel = new UserModel();
         $data = [
@@ -28,14 +30,14 @@ class UserCrud extends BaseController
         return $this->response->redirect(site_url('/users-list'));
     }
  
-    // view single user
+    // Función para buscar un usuario en la tabla de usuarios
     public function singleUser($id = null){
         $userModel = new UserModel();
         $data['user_obj'] = $userModel->where('id', $id)->first();
         return view('edit_user', $data);
     }
  
-    // update user data
+    // Función para modificar la información de un usuario de la tabla de usuarios
     public function update(){
         $userModel = new UserModel();
         $id = $this->request->getVar('id');
@@ -47,7 +49,7 @@ class UserCrud extends BaseController
         return $this->response->redirect(site_url('/users-list'));
     }
   
-    // delete user
+    // Función para eliminar un usuario de la tabla de usuarios
     public function delete($id = null){
         $userModel = new UserModel();
         $data['user'] = $userModel->where('id', $id)->delete($id);
