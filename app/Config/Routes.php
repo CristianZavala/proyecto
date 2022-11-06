@@ -39,7 +39,7 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
  
 // CRUD Routes
-$routes->get('books-list', 'UserCrud::index');
+$routes->get('users-list', 'UserCrud::index');
 $routes->get('user-form', 'UserCrud::create');
 $routes->post('submit-form', 'UserCrud::store');
 $routes->get('edit-view/(:num)', 'UserCrud::singleUser/$1');

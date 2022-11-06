@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Codeigniter 4 CRUD (Create, Read, Update and Delete) with Bootstrap and Datatables</title>
+  <title>Editar usuario</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
   <style>
     .error {
@@ -14,14 +14,14 @@
 </head>
 <body>
 <div class="container">
-    <p><h1>Codeigniter 4 CRUD (Create, Read, Update and Delete) with Bootstrap</h1></p>
+    <p><h1 class="d-flex justify-content-center">Editar usuario</h1></p>
     <div class="row">
         <div class="col-2"></div>
         <div class="col-8">
             <form method="post" id="update_user" name="update_user" action="<?= site_url('/update') ?>">
               <input type="hidden" name="id" id="id" value="<?php echo $user_obj['id']; ?>">
               <div class="form-group">
-                <label>Name</label>
+                <label>Nombre</label>
                 <input type="text" name="name" class="form-control" value="<?php echo $user_obj['name']; ?>">
               </div>
  
@@ -31,7 +31,7 @@
               </div>
  
               <div class="form-group"> <br/>
-                <button type="submit" class="btn btn-info btn-block">Save Data</button>
+                <button type="submit" class="btn btn-info btn-block">Guardar cambios</button>
               </div>
             </form>
         </div>
@@ -56,12 +56,12 @@
         },
         messages: {
           name: {
-            required: "Name is required.",
+            required: "El nombre es requerido.",
           },
           email: {
-            required: "Email is required.",
-            email: "It does not seem to be a valid email.",
-            maxlength: "The email should be or equal to 60 chars.",
+            required: "El email es requerido.",
+            email: "Ingrese un email válido.",
+            maxlength: "El email debe tener menos de 60 caracteres.",
           },
         },
       })

@@ -3,16 +3,21 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Lista de usuarios</title>
+  <title>Librería</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container mt-4">
-    <p><h1>Lista de usuarios registrados</h1></p>
+    <p><h1>Usuarios</h1></p>
     <div class="d-flex justify-content-end">
-        <a href="<?php echo site_url('/user-form') ?>" class="btn btn-success mb-2">Añadir usuario</a>
+        <a href="<?php echo site_url('/book-form') ?>" class="btn btn-success mb-2">Añadir libro</a>
     </div>
-    <table class="table table-bordered table-striped" id="users-list">
+    <?php
+     if(isset($_SESSION['msg'])){
+        echo $_SESSION['msg'];
+      }
+     ?>
+    <table class="table table-bordered table-striped" id="books-list">
        <thead>
           <tr>
              <th>Id</th>
@@ -22,15 +27,15 @@
           </tr>
        </thead>
        <tbody>
-          <?php if($users): ?>
-          <?php foreach($users as $user): ?>
+          <?php if($books): ?>
+          <?php foreach($books as $book): ?>
           <tr>
-             <td><?php echo $user['id']; ?></td>
-             <td><?php echo $user['name']; ?></td>
-             <td><?php echo $user['email']; ?></td>
+             <td><?php echo $book['id']; ?></td>
+             <td><?php echo $book['name']; ?></td>
+             <td><?php echo $book['author']; ?></td>
              <td>
-              <a href="<?php echo base_url('edit-view/'.$user['id']);?>" class="btn btn-primary btn-sm">Editar</a>
-              <a href="<?php echo base_url('delete/'.$user['id']);?>" class="btn btn-danger btn-sm">Borrar</a>
+              <a href="<?php echo base_url('edit-view/'.$book['id']);?>" class="btn btn-primary btn-sm">Editar</a>
+              <a href="<?php echo base_url('delete/'.$book['id']);?>" class="btn btn-danger btn-sm">Borrar</a>
               </td>
           </tr>
          <?php endforeach; ?>
@@ -44,7 +49,7 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script>
     $(document).ready( function () {
-      $('#users-list').DataTable();
+      $('#books-list').DataTable();
   } );
 </script>
 </body>
