@@ -14,13 +14,13 @@
 </head>
 <body>
 <div class="container">
-    <p><h1>Codeigniter 4 CRUD (Create, Read, Update and Delete) with Bootstrap</h1></p>
+    <p><h1 class="d-flex justify-content-center">Registro de usuarios</h1></p>
     <div class="row">
         <div class="col-2"></div>
         <div class="col-8">
             <form method="post" id="add_create" name="add_create" action="<?= site_url('/submit-form') ?>">
               <div class="form-group">
-                <label>Name</label>
+                <label>Nombre</label>
                 <input type="text" name="name" class="form-control">
               </div>
               <div class="form-group">
@@ -28,7 +28,7 @@
                 <input type="text" name="email" class="form-control">
               </div>
               <div class="form-group"><br/>
-                <button type="submit" class="btn btn-primary btn-block">Submit Data</button>
+                <button type="submit" class="btn btn-primary btn-block">Registrar usuario</button>
               </div>
             </form>
         </div>
@@ -53,12 +53,12 @@
         },
         messages: {
           name: {
-            required: "Name is required.",
+            required: "El nombre es requerido.",
           },
           email: {
-            required: "Email is required.",
-            email: "It does not seem to be a valid email.",
-            maxlength: "The email should be or equal to 60 chars.",
+            required: "El email es requerido.",
+            email: "Ingrese un email válido.",
+            maxlength: "El email debe tener menos de 60 caracteres.",
           },
         },
       })
