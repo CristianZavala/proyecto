@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container mt-4">
-    <p><h1>Lista de usuarios registrados</h1></p>
+    <p><h1>LISTA DE USUARIOS REGISTRADOS</h1></p>
     <div class="d-flex justify-content-end">
          <!-- Boton para añadir un usuario nuevo -->
         <a href="<?php echo site_url('/user-form') ?>" class="btn btn-success mb-2">Añadir usuario</a>
@@ -50,6 +50,11 @@
        </tbody>
     </table>
     <!-- Fin de tabla para mostrar usuarios registrados -->
+
+    <!-- Boton descargar PDF -->
+    <div class="col-md-12 text-center mt-3">
+      <a href="<?php echo base_url('/downloadPdf');?>" target="_blank" class="btn btn-success">Descargra PDF</a>
+    </div>
 
 </div>
   

@@ -19,7 +19,7 @@
 <!-- Inicio del body -->
 <body>
 <div class="container">
-    <p><h1 class="d-flex justify-content-center">Registro de usuarios</h1></p>
+    <p><h1 class="d-flex justify-content-center">REGISTRO DE USUARIOS</h1></p>
     <div class="row">
         <div class="col-2"></div>
         <div class="col-8">
