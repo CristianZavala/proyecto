@@ -19,7 +19,7 @@
 <!-- Inicio del body -->
 <body>
 <div class="container">
-    <p><h1 class="d-flex justify-content-center">Editar usuario</h1></p>
+    <p><h1 class="d-flex justify-content-center">EDITAR USUARIO</h1></p>
     <div class="row">
         <div class="col-2"></div>
         <div class="col-8">
@@ -39,7 +39,7 @@
               </div>
               <!-- Botón para guardar los cambios -->
               <div class="form-group"> <br/>
-                <button type="submit" class="btn btn-info btn-block">Guardar cambios</button>
+                <button type="submit" class="btn btn-primary btn-block">Guardar cambios</button>
               </div>
             </form>
             <!-- Boton para mandar el formulario -->
