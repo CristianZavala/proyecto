@@ -20,7 +20,7 @@
        <!-- Titulos de los campos de la tabla -->
        <thead>
           <tr>
-             <th>Id</th>
+             <th>Número celular</th>
              <th>Nombre</th>
              <th>Email</th>
              <th>Acción</th>
@@ -28,19 +28,20 @@
        </thead>
        <tbody>
           <!-- Si hay usuarios entonces llena la tabla -->
+          <!-- TODO sacar esto de la vista -->
           <?php if($users): ?>
 
             <!-- Llenado de la tabla -->
             <?php foreach($users as $user): ?>
             <tr>
-               <td><?php echo $user['id']; ?></td>
+               <td><?php echo $user['cell']; ?></td>
                <td><?php echo $user['name']; ?></td>
                <td><?php echo $user['email']; ?></td>
                <td>
                <!-- Boton para editar un usuario-->
-               <a href="<?php echo base_url('edit-view/'.$user['id']);?>" class="btn btn-primary btn-sm">Editar</a>
+               <a href="<?php echo base_url('edit-view/'.$user['cell']);?>" class="btn btn-primary btn-sm">Editar</a>
                <!-- Boton para eliminar un usuario -->
-               <a href="<?php echo base_url('delete/'.$user['id']);?>" class="btn btn-danger btn-sm">Borrar</a>
+               <a href="<?php echo base_url('delete/'.$user['cell']);?>" class="btn btn-danger btn-sm">Borrar</a>
                </td>
             </tr>
             <?php endforeach; ?>

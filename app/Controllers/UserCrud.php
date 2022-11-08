@@ -11,7 +11,7 @@ class UserCrud extends BaseController
     ordenados por id descendentemente*/
     public function index(){
         $userModel = new UserModel();
-        $data['users'] = $userModel->orderBy('id', 'DESC')->findAll();
+        $data['users'] = $userModel->findAll();
         return view('user_view', $data);
     }
  
@@ -25,35 +25,37 @@ class UserCrud extends BaseController
         $userModel = new UserModel();
         $data = [
             'name' => $this->request->getVar('name'),
-            'email'  => $this->request->getVar('email'),
+            'email' => $this->request->getVar('email'),
+            'cell' => $this->request->getVar('cell'),
         ];
         $userModel->insert($data);
         return $this->response->redirect(site_url('/users-list'));
     }
  
     // Función para buscar un usuario en la tabla de usuarios
-    public function singleUser($id = null){
+    public function singleUser($cell = null){
         $userModel = new UserModel();
-        $data['user_obj'] = $userModel->where('id', $id)->first();
+        $data['user_obj'] = $userModel->where('cell', $cell)->first();
         return view('edit_user', $data);
     }
  
     // Función para modificar la información de un usuario de la tabla de usuarios
+    // TODO hay que validar que no exista el numero de celular al modificarlo
     public function update(){
         $userModel = new UserModel();
-        $id = $this->request->getVar('id');
+        $cell = $this->request->getVar('cell');
         $data = [
             'name' => $this->request->getVar('name'),
             'email'  => $this->request->getVar('email'),
         ];
-        $userModel->update($id, $data);
+        $userModel->update($cell, $data);
         return $this->response->redirect(site_url('/users-list'));
     }
   
     // Función para eliminar un usuario de la tabla de usuarios
-    public function delete($id = null){
+    public function delete($cell = null){
         $userModel = new UserModel();
-        $data['user'] = $userModel->where('id', $id)->delete($id);
+        $data['user'] = $userModel->where('cell', $cell)->delete($cell);
         return $this->response->redirect(site_url('/users-list'));
     }    
 
@@ -72,7 +74,7 @@ class UserCrud extends BaseController
         $html .= '<table border="1" cellpadding="4">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>Número celular</th>
                             <th>Nombre</th>
                             <th>Email</th>
                         </tr>
@@ -81,7 +83,7 @@ class UserCrud extends BaseController
             // Se llena la tabla con los usuarios registrados
             foreach($users as $user){
                 $html .= ' <tr>
-                    <td>'.$user["id"].'</td>
+                    <td>'.$user["cell"].'</td>
                     <td>'.$user["name"].'</td>
                     <td>'.$user["email"].'</td>
                 </tr>';
