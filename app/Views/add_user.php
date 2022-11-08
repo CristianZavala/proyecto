@@ -25,7 +25,7 @@
         <div class="col-8">
 
             <!-- Inicio del formulario -->
-            <form method="post" cell="add_create" name="add_create" action="<?= site_url('/submit-form') ?>">
+            <form method="post" id="add_create" name="add_create" action="<?= site_url('/submit-form') ?>">
               <div class="form-group">
                 <label>Nombre</label>
                 <!-- Input para agregar el nombre del usuario -->
@@ -35,6 +35,11 @@
                 <!-- Input para agregar el email del usuario -->
                 <label>Email</label>
                 <input type="text" name="email" class="form-control">
+              </div>
+              <div class="form-group">
+                <!-- Input para agregar el numero celular del usuario -->
+                <label>Número celular</label>
+                <input type="text" name="cell" class="form-control">
               </div>
               <div class="form-group"><br/>
                 <!-- Boton para mandar el formulario -->
@@ -67,6 +72,12 @@
             maxlength: 60,
             email: true,
           },
+          cell: {
+            required: true,
+            maxlength: 10,
+            minlength: 10,
+            number: true,
+          },
         },
         messages: {
           name: {
@@ -76,6 +87,12 @@
             required: "El email es requerido.",
             email: "Ingrese un email válido.",
             maxlength: "El email debe tener menos de 60 caracteres.",
+          },
+          cell: {
+            required: "El numero celular es requerido.",
+            number: "Solo se permiten números",
+            maxlength: "El número celular debe tener 10 digitos.",
+            minlength: "El número celular debe tener 10 digitos.",
           },
         },
       })

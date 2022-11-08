@@ -16,7 +16,7 @@
     </div>
 
     <!-- Tabla para mostrar usuarios registrados -->
-    <table class="table table-bordered table-striped" cell="users-list">
+    <table class="table table-bordered table-striped" id="users-list">
        <!-- Titulos de los campos de la tabla -->
        <thead>
           <tr>
@@ -28,6 +28,7 @@
        </thead>
        <tbody>
           <!-- Si hay usuarios entonces llena la tabla -->
+          <!-- TODO sacar esto de la vista -->
           <?php if($users): ?>
 
             <!-- Llenado de la tabla -->

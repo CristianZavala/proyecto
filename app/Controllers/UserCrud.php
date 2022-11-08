@@ -8,10 +8,10 @@ class UserCrud extends BaseController
 {
     /* función para obtener en la vista de usuario 
     la lista de todos los usuarios registrados
-    ordenados por cell descendentemente*/
+    ordenados por id descendentemente*/
     public function index(){
         $userModel = new UserModel();
-        $data['users'] = $userModel->orderBy('cell', 'DESC')->findAll();
+        $data['users'] = $userModel->findAll();
         return view('user_view', $data);
     }
  
@@ -20,12 +20,13 @@ class UserCrud extends BaseController
         return view('add_user');
     }
   
-    // Función para guardar el nombre y el cell del usuario en la tabla de usuarios
+    // Función para guardar el nombre y el id del usuario en la tabla de usuarios
     public function store() {
         $userModel = new UserModel();
         $data = [
             'name' => $this->request->getVar('name'),
-            'email'  => $this->request->getVar('email'),
+            'email' => $this->request->getVar('email'),
+            'cell' => $this->request->getVar('cell'),
         ];
         $userModel->insert($data);
         return $this->response->redirect(site_url('/users-list'));
@@ -39,6 +40,7 @@ class UserCrud extends BaseController
     }
  
     // Función para modificar la información de un usuario de la tabla de usuarios
+    // TODO hay que validar que no exista el numero de celular al modificarlo
     public function update(){
         $userModel = new UserModel();
         $cell = $this->request->getVar('cell');
