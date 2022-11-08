@@ -17,7 +17,7 @@ if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('Landing');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -36,9 +36,10 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 //app/Config/Routes.php
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Landing::index');
  
 // CRUD Routes
+$routes->get('login', 'UserLogin::login');
 $routes->get('users-list', 'UserCrud::index');
 $routes->get('user-form', 'UserCrud::create');
 $routes->post('submit-form', 'UserCrud::store');
