@@ -25,7 +25,7 @@
         <div class="col-8">
 
             <!-- Inicio del formulario -->
-            <form method="post" id="add_create" name="add_create" action="<?= site_url('/submit-form') ?>">
+            <form method="post" cell="add_create" name="add_create" action="<?= site_url('/submit-form') ?>">
               <div class="form-group">
                 <label>Nombre</label>
                 <!-- Input para agregar el nombre del usuario -->

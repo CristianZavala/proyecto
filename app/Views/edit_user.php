@@ -25,8 +25,8 @@
         <div class="col-8">
 
             <!-- Inicio del formulario -->
-            <form method="post" id="update_user" name="update_user" action="<?= site_url('/update') ?>">
-              <input type="hidden" name="id" id="id" value="<?php echo $user_obj['id']; ?>">
+            <form method="post" cell="update_user" name="update_user" action="<?= site_url('/update') ?>">
+              <input type="hidden" name="cell" cell="cell" value="<?php echo $user_obj['cell']; ?>">
               <div class="form-group">
                 <label>Nombre</label>
                 <!-- Input para modificar el nombre del usuario, poniendo por defecto su nombre como valor -->
