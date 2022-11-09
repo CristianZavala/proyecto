@@ -8,4 +8,8 @@ class UserLogin extends BaseController
     {
         return view('login');
     }
+
+    public function inicio() {
+        return view('products_list');
+    }
 }

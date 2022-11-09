@@ -41,6 +41,7 @@ $routes->get('/', 'Landing::index');
 // CRUD Routes
 $routes->get('login', 'UserLogin::login');
 $routes->get('users-list', 'UserCrud::index');
+$routes->get('product_list', 'ProductCrud::index');
 $routes->get('user-form', 'UserCrud::create');
 $routes->post('submit-form', 'UserCrud::store');
 $routes->get('edit-view/(:num)', 'UserCrud::singleUser/$1');
